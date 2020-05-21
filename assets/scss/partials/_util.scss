@@ -1,0 +1,19 @@
+.img_wrap {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background-color: $red;
+    border-radius: 50%;
+}
+
+.u-avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    margin: auto;
+}

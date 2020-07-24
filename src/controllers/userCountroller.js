@@ -132,11 +132,6 @@ export const logout = (req, res) => {
     res.redirect(routes.home)
 } 
 
-export const getMe = (req, res) => {
-    
-    res.render('userDetail', {pageTitle: "User Detail", user: req.user})
-}
-
 export const getEditProfile = (req, res) => {
     res.render('editProfile', {pageTitle: "Edit Profile"})
 }
@@ -180,7 +175,10 @@ export const postChangePassword = async (req, res) => {
 }
 
 
-// export const users = (req, res) => res.render('users', {pageTitle: "Users"})
+export const getMe = (req, res) => {
+    res.render('userDetail', {pageTitle: "User Detail", user: req.user})
+}
+
 export const userDetail = async (req, res) => {
     const { 
         params: { id }

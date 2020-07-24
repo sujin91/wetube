@@ -101,7 +101,6 @@ async function setTotalTime() {
   totalTime.innerHTML = totalTimeString;
   setInterval(getCurrentTime, 1000);
 }
-
 function handleEnded() {
   $videoPlayer.currentTime = 0;
   registerView();
@@ -128,7 +127,6 @@ function controlPlay (currentWidth) {
 };
 
 function init() {
-  console.log('hello');
   $videoPlayer.volume = 0.5;
   $playBtn.addEventListener("click", handlePlayClick);
   $volumeBtn.addEventListener("click", handleVolumeClick);
@@ -143,9 +141,6 @@ function init() {
   $progressBar.addEventListener("click", e => {
     controlPlay((e.offsetX / $progressBar.offsetWidth) * 100);
   });
-
-  
-  
 }
 
 if ($videoContainer) {

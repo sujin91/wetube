@@ -12,7 +12,7 @@ passport.use(
     new kakaoStrategy({
         clientID: process.env.KAKAO_ID,
         callbackURL: process.env.PRODUCTION
-        ? `https://boiling-sands-42700.herokuapp.com${routes.kakaoCallback}`
+        ? `https://boiling-sands-42700.herokuapp.com/${routes.kakaoCallback}`
         : `http://localhost:4000${routes.kakaoCallback}`
     }, kakaoLoginCallback) 
 )

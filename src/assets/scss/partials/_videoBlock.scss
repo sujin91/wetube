@@ -1,0 +1,31 @@
+.videoBlock {
+    display: inline-flex;
+    width: 100%;
+    a {
+        display: block;
+        width: 100%;
+        text-decoration: none;
+    }
+
+    video {
+      margin-bottom: 10px;
+      max-width: 100%;
+      width: 100%;
+    }
+
+    .videoBlock_title {
+      font-size: 18px;
+      font-weight: 300;
+      margin-bottom: 10px;
+    }
+
+    .videoBlock_view {
+        font-size: 16px;
+    }
+}
+
+.video__player {
+    video {
+        width: 100%;
+    }
+}

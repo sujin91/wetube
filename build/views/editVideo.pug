@@ -1,0 +1,11 @@
+extends layouts/main
+
+block content
+    .form-container
+        form(action=routes.editVideo(id), method="post")
+            <label for="title">Title</label>
+            input(type="text" value=video.title name="title" placeholder="title")
+            <label for="description">Description</label>
+            input(type="text" value=video.description name="description" placeholder="description")
+            input(type="submit" value="Edit video")
+            a.btn_delete(href=routes.deleteVideo(id)) Delete video

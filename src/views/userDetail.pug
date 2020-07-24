@@ -7,7 +7,7 @@ block content
             .img_wrap
                 img.u-avatar(src=`${user.avatarUrl}`)
             h4=user.name
-       
+        if user.id === loggedUser.id
             .user-profile__btns
                 a(href=`/users${routes.editProfile}`)
                     button ✏️ 프로필 편집

@@ -5,7 +5,6 @@ import Comment from "../models/Comment"
 export const home = async (req, res) => {
     try {
         const videos = await Video.find({})
-        // const video = []
         res.render('home', {pageTitle: "Home", videos})
     } catch (error) {
         console.log(error)
@@ -13,7 +12,6 @@ export const home = async (req, res) => {
     }
 }
 export const search = async (req, res) => {
-    // const searchBy = req.query.term
     const {
         query: {term: searchBy}
     } = req
@@ -30,19 +28,18 @@ export const search = async (req, res) => {
     res.render('search', {pageTitle: "Search", searchBy, videos})
 }
 
-// export const videos = (req, res) => res.render('videos', {pageTitle: "Videos"})
-
 export const getUpload = (req, res) => {
     res.render('upload', {pageTitle: "Upload"})
 }
+
 export const postUpload = async (req, res) => {
     const { 
         body: {title, description},
-        file: {path} 
+        file: {location} 
     } = req
 
     const newVideo = await Video.create({
-        fileUrl: path,
+        fileUrl: location,
         title,
         description,
         creator: req.user.id
@@ -52,25 +49,17 @@ export const postUpload = async (req, res) => {
     req.user.save()
 
     res.redirect(routes.videoDetail(newVideo.id))
-    // res.render('upload', {id, title})
-    // console.log(req)
 }
 
 export const videoDetail = async (req, res) => {
     const {
         params: {id}
     } = req
-    // console.log(id)
 
     try{
         const video = await Video.findById(id).populate('creator').populate('comments') 
         //populate 는 objectID에만 쓰고 객체전체내용을가지고옴
         
-        // video.comments.forEach(comment => {
-        //     if(comment.creator === req.user.id) {
-
-        //     }
-        // })
         res.render('videoDetail', {pageTitle: video.title, video })
     }catch(error) {
         console.log(error)
@@ -86,11 +75,6 @@ export const getEditVideo = async (req, res) => {
     try {
         const video = await Video.findById(id)
         res.render('editVideo', {pageTitle: `Edit ${video.title}`, id, video})
-        // if (video.creator !== req.user.id){
-        //     throw Error()
-        // } else {
-        //     res.render('editVideo', {pageTitle: `Edit ${video.title}`, id, video})
-        // }
     }
     catch(error) {
         res.redirect(routes.home)

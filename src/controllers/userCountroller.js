@@ -1,7 +1,7 @@
 import passport from "passport"
 import routes from "../routes"
 import User from "../models/User"
-
+import Video from "../models/Video"
 
 export const getJoin = (req, res) => {
     res.render('join', {pageTitle: "Join"})
@@ -133,6 +133,7 @@ export const logout = (req, res) => {
 } 
 
 export const getMe = (req, res) => {
+    
     res.render('userDetail', {pageTitle: "User Detail", user: req.user})
 }
 
@@ -149,7 +150,7 @@ export const postEditProfile = async (req, res) => {
         await User.findByIdAndUpdate(req.user.id, {
             name,
             email,
-            avatarUrl: file ? `/${file.path}` : req.user.avatarUrl
+            avatarUrl: file ? file.location : req.user.avatarUrl
         })
         res.redirect(routes.me)
     }catch (error){

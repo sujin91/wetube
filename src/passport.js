@@ -7,7 +7,6 @@ import routes from "./routes"
 
 passport.use(User.createStrategy())
 
-
 passport.use(
     new kakaoStrategy({
         clientID: process.env.KAKAO_ID,

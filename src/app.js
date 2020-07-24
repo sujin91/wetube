@@ -25,6 +25,7 @@ app.set("view engine", "pug")
 // app.use("/uploads", express.static("uploads"))
 // app.use("/static", express.static("static"))
 app.set("views", path.join(__dirname, "views"));
+app.use("/uploads", express.static(path.join(__dirname, "static")));
 app.use("/static", express.static(path.join(__dirname, "static")));
 
 app.use(cookieParser())

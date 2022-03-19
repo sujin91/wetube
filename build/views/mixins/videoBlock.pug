@@ -1,0 +1,6 @@
+mixin videoBlock (video = {})
+    .videoBlock
+        a(href=routes.videoDetail(video.id))
+            video(src=video.videoFile, controls="control")
+            h4.video_title= video.title
+            h6.video_view= `조회수 ${video.views}` 

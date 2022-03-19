@@ -1,0 +1,29 @@
+extends layouts/main
+include mixins/videoBlock
+
+block content
+    .user-profile
+        .user-profile__header
+            .img_wrap
+                img.u-avatar(src=`${user.avatarUrl}`)
+            h4=user.name
+        if user.id === loggedUser.id
+            .user-profile__btns
+                a(href=`/users${routes.editProfile}`)
+                    button ✏️ 프로필 편집
+                a(href=`/users${routes.changePassword}`)
+                    button 🔒 비밀번호 변경
+            
+        .user-profile__videos
+            h5
+                em.highlight=user.name
+                span 의 비디오 목록
+                
+            each item in user.videos
+                +videoBlock({
+                    id: item.id,
+                    title: item.title,
+                    views: item.views,
+                    videoFile: item.fileUrl
+                })
+        

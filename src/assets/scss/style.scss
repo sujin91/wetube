@@ -1,0 +1,16 @@
+@import "common/variable";
+@import "common/reset";
+
+@import "partials/header";
+@import "partials/main";
+@import "partials/form";
+@import "partials/footer";
+@import "partials/socialLogin";
+@import "partials/videoBlock";
+@import "partials/util";
+@import "partials/videoPlayer";
+@import "partials/videoRecorder";
+
+@import "pages/home";
+@import "pages/videoDetail";
+@import "pages/userProfile";
